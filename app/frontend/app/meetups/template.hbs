@@ -1,3 +1,5 @@
 <h3>Upcoming meetups</h3>
 
-{{outlet}}
+{{#each model as |meetup|}}
+  <p>{{meetup}}</p>
+{{/each}}
