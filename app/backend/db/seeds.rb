@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Meetup.create(title: 'Ember.YVR Talks Night')
+Meetup.create(title: 'Ember.YVR Projects and Mentoring Night')
+Meetup.create(title: 'Ember.YVR Tom Dale Visit')
