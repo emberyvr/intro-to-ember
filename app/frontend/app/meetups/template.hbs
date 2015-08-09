@@ -1,5 +1,5 @@
 <h3>Upcoming meetups</h3>
 
 {{#each meetups as |meetup|}}
-  <p>{{meetup.title}}</p>
+  {{meetup-item meetup=meetup action="saveMeetup"}}
 {{/each}}
