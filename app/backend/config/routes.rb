@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   scope :api do
-    resources :meetups
+    resources :meetups, only: [:index, :show, :update], format: false
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
