@@ -1,411 +1,393 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+    <title>reveal.js - The HTML Presentation Framework</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="Introduction to Ember 2.0">
+    <meta name="author" content="Benjamin Borowski">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/ember.css">
 
-		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section data-background="#e1563f">
+          <h2><img height="100" src="img/ember-logo-dark.png" alt="Ember"></h2>
+          <h3>Ambitious web apps with Ember</h3>
+          <p>
+            <small class="spaced">
+              <a href="http://typeoneerror.com">Benjamin Borowski</a>
+              <span>/</span>
+              <span>Ember.YVR</span>
+              <span>/</span>
+              <a href="http://twitter.com/typeoneerror">@typeoneerror</a>
+            </small>
+          </p>
+          <aside class="notes">
+            <ol>
+              <li>Introduce self</li>
+              <li>Working on Ember app</li>
+            </ol>
+          </aside>
+        </section>
 
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
-				</section>
+        <section>
+          <h2>What is Ember?</h2>
+          <ul>
+            <li class="fragment">A framework for creating web applications.</li>
+            <li class="fragment">An ecosystem for building web applications that utilize the framework.
+          </ul>
+          <aside class="notes">
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+          </aside>
+        </section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
+        <section>
+          <h2>The Ember 2.x Stack</h2>
+          <ul>
+            <li class="fragment">
+              <strong>Ember.js</strong> <em class="fragment">— Building-blocks of your app</em>
+            </li>
+            <li class="fragment">
+              <strong>Ember CLI</strong> <em class="fragment">— Command line build tools, add-ons, server</em>
+            </li>
+            <li class="fragment">
+              <strong>Ember Data</strong> <em class="fragment">– Default data store</em>
+            </li>
+            <li class="fragment">
+              <hr>
+              <strong>Liquid Fire</strong> <em class="fragment">— Animations and transitions</em>
+            </li>
+            <li class="fragment">
+              <strong>List View</strong> <em class="fragment">— View renderer for large lists</em>
+            </li>
+            <li class="fragment">
+              <hr>
+              <strong>Ember Inspector</strong> <em class="fragment">— Inspecting & debugging</em>
+            </li>
+          </ul>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+          <aside class="notes">
+            <p>The Ember framework has APIs for dealing with routing (what happens when the URL changes), rendering templates, data-modeling, and displaying components.</p>
 
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
+            <p>Ember CLI: build tools for asset compilation, a server for running and reloading your application, and a robust add-on system that allows you to use and share plugins for Ember.</p>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+            <p>Ember Data is the official data store library for Ember. There are others.</p>
 
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+            <p>Liquid Fire and List View are additional "non-core" libraries that add support for animation and list view displays respectively. Neither are installed as part of Ember CLI by default.</p>
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+            <p>The entire stack will eventually be released as one version.</p>
+          </aside>
+        </section>
 
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
+        <section data-background="#e1563f">
+          <h2 class="as-is">Ember CLI <em>is</em> Ember</h2>
 
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+          <img src="img/ecosystem.png" alt="Ember stack">
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+          <aside class="notes">
+            <p>When you install Ember CLI you're installing the Ember.js framework and Ember Data.</p>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
+            <p>You're also getting Broccoli, which Ember uses for the asset pipeline, meaning we get near-constant rebuilds of our project files as we're developing and a live-reload server right out of the box.</p>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
+            <p>Ember CLI is now the preferred tool for building Ember apps, so it's the best place to start. Let's take a look at how creating an Ember CLI-based application works.</p>
+          </aside>
+        </section>
 
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
+        <section>
+          <h2>Installing Ember CLI</h2>
 
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code>Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
+          <h4>Requirements</h4>
 
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
+          <p>
+            You'll need the latest version of Node & NPM (<a href="https://nodejs.org/">https://nodejs.org/</a>).
+          </p>
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+          <h4>Installing</h4>
 
-    var nodes = document.querySelectorAll( selector );
+<pre><code data-trim contenteditable>
+# install the cli client
+$ npm install -g ember-cli@1.13.1
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+# install bower
+$ npm install -g bower
 
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
+# we got it?
+$ ember -v
+</code></pre>
+
+          <aside class="notes">
+            <p>Ok, so we're installing 1.13.1 to use Ember 2.0? That's confusing. Indeed.</p>
+
+            <p>Ember CLI 2.0 is not released yet. We could use the beta form, but this'll be a bit too complex for doing this live. The 1.13.x is basically the same code as 2.0, minus a bunch of deprecations, so we'll continue with 1.13.x until all the products of the Ember Ecosystem release 2.0. All the coding we'll be demoing will be "2.0-compliant" meaning that we won't use any code or concepts that won't work in 2.0.</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Creating the app</h2>
+
+          <pre><code data-trim contenteditable>
+$ ember new frontend
+          </code></pre>
+
+          <aside class="notes">
+            Creating the Ember CLI app is simple. This command creates a new project and installs all the current dependencies.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Created files</h2>
+          <h4>What did we get?</h4>
+
+          <ul>
+            <li><em>app</em> — most of our Ember code'll go here</li>
+            <li><em>config</em> — configure Ember CLI</li>
+            <li><em>ember-cli-build.js</em> — configure Broccoli</li>
+          </ul>
+
+          <aside class="notes">
+          </aside>
+        </section>
+
+        <section>
+          <h2>Using Pods</h2>
+          <p>Pods group related files into named folders.<br>Default is <code>true</code> in Ember 2.x.</p>
+
+          <pre><code data-trim contenteditable>
+// No pods
+controllers/meetups.js
+models/meetup.js
+routes/meetups.js
+
+// With pods
+meetups/controller.js
+meetups/model.js
+meetups/route.js
+          </code></pre>
+
+          <pre><code data-trim contenteditable>
+{
+  "disableAnalytics": false,
+  "usePods": true
 }
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+          </code></pre>
 
-				<section>
-					<h2>Marvelous List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+          <aside class="notes">
+            <p>Pods will be the default in Ember 2.0, so let's add that to our <em>.ember-cli</em> file.</p>
+          </aside>
+        </section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+        <section>
+          <h2>Running the app</h2>
+          <pre><code data-trim contenteditable>
+$ cd frontend
+$ ember server
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							<tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							<tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							<tr>
-						</tbody>
-					</table>
-				</section>
+        <section>
+          <h2>Concepts</h2>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
+          <p>Route -> Model -> Controller -> Component -> Template</p>
+        </section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+        <section>
+          <h2>Route</h2>
 
-				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
+          <ul>
+            <li><em>Routes</em> a URL to a template resource</li>
+            <li>Provides a model to a controller (or component)</li>
+          </ul>
+        </section>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+        <section>
+          <h2>Adding a route</h2>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="//www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
+          <pre><code data-trim contenteditable>
+$ ember generate route meetups
+          </code></pre>
+          <p>or use generate short-hand</p>
+          <pre><code data-trim contenteditable>
+$ ember g route meetups
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
-				</section>
+        <section>
+          <h2>Specify the route's model</h2>
 
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+          <p>The model hook should return a Promise.</p>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
-				</section>
+          <pre><code data-trim contenteditable>
+model() {
+  return [1, 2, 3];
+}
+          </code></pre>
+        </section>
 
-				<section>
-					<h2>Much more</h2>
-					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
-					</ul>
-				</section>
+        <section>
+          <h2>Route renders the template</h2>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
-				</section>
+          <p>And we can access properties of the model in the template now.</p>
 
-			</div>
+          <pre><code data-trim contenteditable>
+<h3>Upcoming meetups</h3>
 
-		</div>
+{{#each model as |meetup|}}
+  <p>{{meetup}}</p>
+{{/each}}
+          </code></pre>
+        </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+        <section>
+          <h2>Controllers</h2>
+          <p>Wiring between Route and Template.<br>Created automatically even you don't define one.<br>Soon to be fully replaced by Components.</p>
 
-		<script>
+          <pre><code data-trim contenteditable>
+$ ember g controller meetups
+          </code></pre>
+        </section>
 
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+        <section>
+          <h2>Models</h2>
+          <p>Let's get some data into our app</p>
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+          <pre><code data-trim contenteditable>
+$ ember g model meetup title:string createdAt:date updatedAt:date
+          </code></pre>
 
-				// Optional reveal.js plugins
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+          <aside class="notes">
+            * Show JSON API
+          </aside>
+        </section>
 
-		</script>
+        <section>
+          <h2>Serializing data</h2>
 
-	</body>
+          <pre><code data-trim contenteditable>
+ember g adapter application
+ember g serializer application
+          </code></pre>
+
+          <aside class="notes">
+
+            Prepare our Ember models.
+            Adapter is our connection to the data-source.
+            Serializer translates JSON objects into Ember objects.
+          </aside>
+        </section>
+
+        <section>
+          <h2>Proxying requests</h2>
+          <p>Start the server with the --proxy flag to have all requests proxy through to your dev server.</p>
+
+          <pre><code data-trim contenteditable>
+$ ember server --proxy http://localhost:3000
+          </code></pre>
+          <p>OR in .ember-cli</p>
+
+          <pre><code data-trim contenteditable>
+"proxy": "http://localhost:3000"
+          </code></pre>
+
+          <aside class="notes">
+
+          </aside>
+        </section>
+
+        <section>
+          <h2>Using Ember Data</h2>
+          <p>Use the service on <code>this.store</code> to retreive data via promises.</p>
+          <pre><code data-trim contenteditable>
+model() {
+  return this.store.findAll('meetup');
+}
+          </pre></code>
+
+          <aside class="notes">
+            * Update model hook in route
+            * Update template useage
+          </aside>
+        </section>
+
+        <section>
+          <h2>Components</h2>
+          <p>Reusable HTML controls</p>
+          <pre><code data-trim contenteditable>
+$ ember g component meetup-item
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Ember 2.something</h2>
+          <p>Route -> Model <span style="text-decoration: line-through;">-> Controller</span> -> Component -> Template</p>
+          <p><a href="https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md">https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md</a></p>
+        </section>
+
+        <section style="text-align: left;">
+          <h2>Thanks, Ember.YVR!</h2>
+          <p>Reach out to <a href="http://twitter.com/typeoneerror">@typeoneerror</a> on Twitter with questions</p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        // transition: 'none', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
 </html>
