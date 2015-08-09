@@ -1,7 +1,7 @@
 {{#if isEditing}}
   {{input value=meetup.title}}
-  <a {{action "save"}}>save</a>
-  <a {{action "cancel"}}>cancel</a>
+  <button {{action "save"}}>save</button>
+  <button {{action "cancel"}}>cancel</button>
 {{else}}
   <p {{action "edit"}}>{{meetup.title}}</p>
 {{/if}}
