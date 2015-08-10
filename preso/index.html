@@ -79,13 +79,13 @@
           <h2>The Ember 2.x Stack</h2>
           <ul>
             <li class="fragment">
-              <strong>Ember.js</strong> <em>— Building-blocks of your app</em>
+              <strong>Ember.js</strong> <em>— MVC, routing URLs, rendering templates</em>
             </li>
             <li class="fragment">
-              <strong>Ember CLI</strong> <em>— Command line build tools, add-ons, server</em>
+              <strong>Ember CLI</strong> <em>— Command line build tools, server, add-ons</em>
             </li>
             <li class="fragment">
-              <strong>Ember Data</strong> <em>– Default data store</em>
+              <strong>Ember Data</strong> <em>– Ember's de-facto data store</em>
             </li>
             <li class="fragment">
               <hr>
@@ -320,7 +320,7 @@ model() {
 
           <ul>
             <li>Wiring between Route and Template.</li>
-            <li>Created automatically even you don't define one.</li>
+            <li>Created automatically even if you don't define one.</li>
             <li>Soon to be fully replaced by Components.</li>
           </ul>
 
@@ -353,10 +353,17 @@ $ ember g model meetup title:string createdAt:date updatedAt:date
         </section>
 
         <section>
-          <h2>Serializing data</h2>
+          <h2>Prepping data for the app</h2>
+
+          <p>Adapters - Connection to datasource</p>
 
           <pre><code data-trim contenteditable>
 $ ember g adapter application
+          </code></pre>
+
+          <p>Serializer - Translates JSON objects into Ember objects</p>
+
+          <pre><code data-trim contenteditable>
 $ ember g serializer application
           </code></pre>
 
