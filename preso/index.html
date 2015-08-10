@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
 
-    <title>reveal.js - The HTML Presentation Framework</title>
+    <title>Ambitious Web Apps with Ember</title>
 
-    <meta name="description" content="Introduction to Ember 2.0">
+    <meta name="description" content="Ambitious Web Apps with Ember">
     <meta name="author" content="Benjamin Borowski">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -45,11 +45,11 @@
           <h3>Ambitious web apps with Ember</h3>
           <p>
             <small class="spaced">
-              <a href="http://typeoneerror.com">Benjamin Borowski</a>
+              <a href="http://typeoneerror.com" target="_blank">Benjamin Borowski</a>
               <span>/</span>
-              <span>Ember.YVR</span>
+              <a href="www.meetup.com/Vancouver-Ember-js" target="_blank">Ember.YVR</a>
               <span>/</span>
-              <a href="http://twitter.com/typeoneerror">@typeoneerror</a>
+              <a href="http://twitter.com/typeoneerror" target="_blank">@typeoneerror</a>
             </small>
           </p>
           <aside class="notes">
@@ -63,11 +63,11 @@
         <section>
           <h2>What is Ember?</h2>
           <ul>
-            <li class="fragment">A framework for creating web applications.</li>
-            <li class="fragment">An ecosystem for building web applications that utilize the framework.
+            <li>A framework for creating web applications.</li>
+            <li>An ecosystem for building web applications that utilize the framework.</li>
           </ul>
           <aside class="notes">
-
+            <p>Rails is similar in style/scope</p>
           </aside>
         </section>
 
@@ -75,24 +75,24 @@
           <h2>The Ember 2.x Stack</h2>
           <ul>
             <li class="fragment">
-              <strong>Ember.js</strong> <em class="fragment">— Building-blocks of your app</em>
+              <strong>Ember.js</strong> <em>— Building-blocks of your app</em>
             </li>
             <li class="fragment">
-              <strong>Ember CLI</strong> <em class="fragment">— Command line build tools, add-ons, server</em>
+              <strong>Ember CLI</strong> <em>— Command line build tools, add-ons, server</em>
             </li>
             <li class="fragment">
-              <strong>Ember Data</strong> <em class="fragment">– Default data store</em>
-            </li>
-            <li class="fragment">
-              <hr>
-              <strong>Liquid Fire</strong> <em class="fragment">— Animations and transitions</em>
-            </li>
-            <li class="fragment">
-              <strong>List View</strong> <em class="fragment">— View renderer for large lists</em>
+              <strong>Ember Data</strong> <em>– Default data store</em>
             </li>
             <li class="fragment">
               <hr>
-              <strong>Ember Inspector</strong> <em class="fragment">— Inspecting & debugging</em>
+              <strong>Liquid Fire</strong> <em>— Animations and transitions</em>
+            </li>
+            <li class="fragment">
+              <strong>List View</strong> <em>— View renderer for large lists</em>
+            </li>
+            <li class="fragment">
+              <hr>
+              <strong>Ember Inspector</strong> <em>— Inspecting & debugging</em>
             </li>
           </ul>
 
@@ -115,11 +115,13 @@
           <img src="img/ecosystem.png" alt="Ember stack">
 
           <aside class="notes">
+            <p>Ember CLI is now the preferred tool for building Ember apps, so it's the best place to start.</p>
+
             <p>When you install Ember CLI you're installing the Ember.js framework and Ember Data.</p>
 
             <p>You're also getting Broccoli, which Ember uses for the asset pipeline, meaning we get near-constant rebuilds of our project files as we're developing and a live-reload server right out of the box.</p>
 
-            <p>Ember CLI is now the preferred tool for building Ember apps, so it's the best place to start. Let's take a look at how creating an Ember CLI-based application works.</p>
+            <p>Let's take a look at how creating an Ember CLI-based application works.</p>
           </aside>
         </section>
 
@@ -136,7 +138,7 @@
 
 <pre><code data-trim contenteditable>
 # install the cli client
-$ npm install -g ember-cli@1.13.1
+$ npm install -g ember-cli@1.13.7
 
 # install bower
 $ npm install -g bower
@@ -146,7 +148,7 @@ $ ember -v
 </code></pre>
 
           <aside class="notes">
-            <p>Ok, so we're installing 1.13.1 to use Ember 2.0? That's confusing. Indeed.</p>
+            <p>Ok, so we're installing 1.13.7  to use Ember 2.0? That's confusing. Indeed.</p>
 
             <p>Ember CLI 2.0 is not released yet. We could use the beta form, but this'll be a bit too complex for doing this live. The 1.13.x is basically the same code as 2.0, minus a bunch of deprecations, so we'll continue with 1.13.x until all the products of the Ember Ecosystem release 2.0. All the coding we'll be demoing will be "2.0-compliant" meaning that we won't use any code or concepts that won't work in 2.0.</p>
           </aside>
@@ -159,6 +161,8 @@ $ ember -v
 $ ember new frontend
           </code></pre>
 
+          <p><img src="img/ember-new.png" alt="ember new frontend" style="border-radius: 4px;"></p>
+
           <aside class="notes">
             Creating the Ember CLI app is simple. This command creates a new project and installs all the current dependencies.
           </aside>
@@ -169,9 +173,10 @@ $ ember new frontend
           <h4>What did we get?</h4>
 
           <ul>
-            <li><em>app</em> — most of our Ember code'll go here</li>
+            <li><em>app</em> — most of our code'll go here</li>
+            <li><em>app/router.js</em> — define app URLs here</li>
             <li><em>config</em> — configure Ember CLI</li>
-            <li><em>ember-cli-build.js</em> — configure Broccoli</li>
+            <li><em>ember-cli-build.js</em> — configure build (think gulp, grunt)</li>
           </ul>
 
           <aside class="notes">
@@ -202,6 +207,7 @@ meetups/route.js
           </code></pre>
 
           <aside class="notes">
+            <p>We're only going to do one piece of configuration for this demo.</p>
             <p>Pods will be the default in Ember 2.0, so let's add that to our <em>.ember-cli</em> file.</p>
           </aside>
         </section>
@@ -212,20 +218,34 @@ meetups/route.js
 $ cd frontend
 $ ember server
           </code></pre>
+
+          <aside class="notes">
+            <p>Obviously not super impressive</p>
+            <p>Let's take a look at the first template that is rendered by default</p>
+            <p>We can make a change to this template to see the livereload in effect</p>
+          </aside>
         </section>
 
         <section>
           <h2>Concepts</h2>
 
           <p>Route -> Model -> Controller -> Component -> Template</p>
+
+          <aside class="notes">
+            <p>So let's talk concepts</p>
+            <p>Major players in Ember are route, model, controller, components, templates</p>
+            <p>Route provides the Model to a Controller or Components</p>
+            <p>Route also renders Templates and/or Components</p>
+            <p>So let's talk about routing first</p>
+          </aside>
         </section>
 
         <section>
           <h2>Route</h2>
 
           <ul>
-            <li><em>Routes</em> a URL to a template resource</li>
-            <li>Provides a model to a controller (or component)</li>
+            <li><em>Routes</em> a URL to a template/component resource</li>
+            <li>Provides a model to be passed to a controller (or component)</li>
           </ul>
         </section>
 
@@ -239,6 +259,11 @@ $ ember generate route meetups
           <pre><code data-trim contenteditable>
 $ ember g route meetups
           </code></pre>
+
+          <aside class="notes">
+            <p>Change templates text in app/meetups/template.js</p>
+            <p>Nested routes are rendered into an {{outlet}}</p>
+          </aside>
         </section>
 
         <section>
@@ -251,12 +276,16 @@ model() {
   return [1, 2, 3];
 }
           </code></pre>
+
+          <aside class="notes">
+            <p>Add model hook as shown</p>
+            <p>Route renders template once model has resolved</p>
+            <p>Ember has a Promise library called RSVP for more complex use</p>
+          </aside>
         </section>
 
         <section>
           <h2>Route renders the template</h2>
-
-          <p>And we can access properties of the model in the template now.</p>
 
           <pre><code data-trim contenteditable>
 <h3>Upcoming meetups</h3>
@@ -265,15 +294,28 @@ model() {
   <p>{{meetup}}</p>
 {{/each}}
           </code></pre>
+
+          <aside class="notes">
+            <p>Display model items via {{#each}}</p>
+          </aside>
         </section>
 
         <section>
           <h2>Controllers</h2>
-          <p>Wiring between Route and Template.<br>Created automatically even you don't define one.<br>Soon to be fully replaced by Components.</p>
-
+          <ul>
+            <li>Wiring between Route and Template.</li>
+            <li>Created automatically even you don't define one.</li>
+            <li>Soon to be fully replaced by Components.</li>
+          </ul>
           <pre><code data-trim contenteditable>
 $ ember g controller meetups
           </code></pre>
+
+          <aside class="notes">
+            <p>Template is render in the scope of the controller</p>
+            <p>Generate controller</p>
+            <p>Add computed property "meetups" pointing to "model"</p>
+          </aside>
         </section>
 
         <section>
@@ -285,7 +327,9 @@ $ ember g model meetup title:string createdAt:date updatedAt:date
           </code></pre>
 
           <aside class="notes">
-            * Show JSON API
+            <p>Show JSON API</p>
+            <p>Generate model</p>
+            <p>Look at model file</p>
           </aside>
         </section>
 
@@ -298,11 +342,47 @@ ember g serializer application
           </code></pre>
 
           <aside class="notes">
-
-            Prepare our Ember models.
-            Adapter is our connection to the data-source.
-            Serializer translates JSON objects into Ember objects.
+            <p>Prepare our Ember models.</p>
+            <p>Adapter is our connection to the data-source.</p>
+            <p>Serializer translates JSON objects into Ember objects.</p>
           </aside>
+        </section>
+
+        <section>
+          <h2>Adapter Scope</h2>
+
+          <p>Change our namespace since our API is at /api</p>
+
+          <pre><code data-trim contenteditable>
+import DS from 'ember-data';
+
+export default DS.JSONAPIAdapter.extend({
+  namespace: 'api'
+});
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Serializing data</h2>
+
+          <p>Special case until Ember 2.0 stable release:</p>
+
+          <pre><code data-trim contenteditable>
+import Ember from 'ember';
+import DS from 'ember-data';
+
+var underscore = Ember.String.underscore;
+
+export default DS.JSONAPISerializer.extend({
+  keyForAttribute: function(attr) {
+    return underscore(attr);
+  },
+
+  keyForRelationship: function(rawKey) {
+    return underscore(rawKey);
+  }
+});
+          </code></pre>
         </section>
 
         <section>
@@ -319,7 +399,7 @@ $ ember server --proxy http://localhost:3000
           </code></pre>
 
           <aside class="notes">
-
+            <p>In our case we're going to add the proxy setting in .ember-cli</p>
           </aside>
         </section>
 
@@ -333,8 +413,8 @@ model() {
           </pre></code>
 
           <aside class="notes">
-            * Update model hook in route
-            * Update template useage
+            <p>* Update model hook in route</p>
+            <p>* Update template useage</p>
           </aside>
         </section>
 
@@ -344,6 +424,12 @@ model() {
           <pre><code data-trim contenteditable>
 $ ember g component meetup-item
           </code></pre>
+
+          <aside class="notes">
+            <p>Show the creation of a component with actions</p>
+            <p>Show tagName useage with inspector</p>
+            <p>Make meetup title editable with input and save model</p>
+          </aside>
         </section>
 
         <section>
