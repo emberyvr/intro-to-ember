@@ -40,18 +40,22 @@
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
+
         <section data-background="#e1563f">
           <h2><img height="100" src="img/ember-logo-dark.png" alt="Ember"></h2>
           <h3>Ambitious web apps with Ember</h3>
-          <p>
-            <small class="spaced">
+          <small class="spaced">
+            <p>
               <a href="http://typeoneerror.com" target="_blank">Benjamin Borowski</a>
               <span>/</span>
               <a href="www.meetup.com/Vancouver-Ember-js" target="_blank">Ember.YVR</a>
               <span>/</span>
               <a href="http://twitter.com/typeoneerror" target="_blank">@typeoneerror</a>
-            </small>
-          </p>
+            </p>
+            <p>
+              <p>Source: <a href="https://github.com/emberyvr/intro-to-ember" target="_blank">https://github.com/emberyvr/intro-to-ember</a></p>
+            </p>
+          </small>
           <aside class="notes">
             <ol>
               <li>Introduce self</li>
@@ -131,7 +135,7 @@
           <h4>Requirements</h4>
 
           <p>
-            You'll need the latest version of Node & NPM (<a href="https://nodejs.org/">https://nodejs.org/</a>).
+            You'll need the latest version of Node & NPM (<a href="https://nodejs.org/" target="_blank">https://nodejs.org/</a>).
           </p>
 
           <h4>Installing</h4>
@@ -150,7 +154,7 @@ $ ember -v
           <aside class="notes">
             <p>Ok, so we're installing 1.13.7  to use Ember 2.0? That's confusing. Indeed.</p>
 
-            <p>Ember CLI 2.0 is not released yet. We could use the beta form, but this'll be a bit too complex for doing this live. The 1.13.x is basically the same code as 2.0, minus a bunch of deprecations, so we'll continue with 1.13.x until all the products of the Ember Ecosystem release 2.0. All the coding we'll be demoing will be "2.0-compliant" meaning that we won't use any code or concepts that won't work in 2.0.</p>
+            <p>Ember CLI 2.0 is not released yet. We could use the beta/canary forms, but this'll be a bit too complex for doing this live. The 1.13.x is basically the same code as 2.0, minus a bunch of deprecations, so we'll continue with 1.13.x until all the products of the Ember Ecosystem release 2.0. All the coding we'll be demoing will be "2.0-compliant" meaning that we won't use any code or concepts that won't work in 2.0.</p>
           </aside>
         </section>
 
@@ -185,6 +189,7 @@ $ ember new frontend
 
         <section>
           <h2>Using Pods</h2>
+
           <p>Pods group related files into named folders.<br>Default is <code>true</code> in Ember 2.x.</p>
 
           <pre><code data-trim contenteditable>
@@ -208,6 +213,7 @@ meetups/route.js
 
           <aside class="notes">
             <p>We're only going to do one piece of configuration for this demo.</p>
+
             <p>Pods will be the default in Ember 2.0, so let's add that to our <em>.ember-cli</em> file.</p>
           </aside>
         </section>
@@ -221,7 +227,9 @@ $ ember server
 
           <aside class="notes">
             <p>Obviously not super impressive</p>
+
             <p>Let's take a look at the first template that is rendered by default</p>
+
             <p>We can make a change to this template to see the livereload in effect</p>
           </aside>
         </section>
@@ -229,13 +237,17 @@ $ ember server
         <section>
           <h2>Concepts</h2>
 
-          <p>Route -> Model -> Controller -> Component -> Template</p>
+          <p><img src="img/names-tee-1.png" alt="Names"></p>
 
           <aside class="notes">
             <p>So let's talk concepts</p>
+
             <p>Major players in Ember are route, model, controller, components, templates</p>
+
             <p>Route provides the Model to a Controller or Components</p>
+
             <p>Route also renders Templates and/or Components</p>
+
             <p>So let's talk about routing first</p>
           </aside>
         </section>
@@ -262,6 +274,7 @@ $ ember g route meetups
 
           <aside class="notes">
             <p>Change templates text in app/meetups/template.js</p>
+
             <p>Nested routes are rendered into an {{outlet}}</p>
           </aside>
         </section>
@@ -279,7 +292,9 @@ model() {
 
           <aside class="notes">
             <p>Add model hook as shown</p>
+
             <p>Route renders template once model has resolved</p>
+
             <p>Ember has a Promise library called RSVP for more complex use</p>
           </aside>
         </section>
@@ -302,11 +317,13 @@ model() {
 
         <section>
           <h2>Controllers</h2>
+
           <ul>
             <li>Wiring between Route and Template.</li>
             <li>Created automatically even you don't define one.</li>
             <li>Soon to be fully replaced by Components.</li>
           </ul>
+
           <pre><code data-trim contenteditable>
 $ ember g controller meetups
           </code></pre>
@@ -315,11 +332,13 @@ $ ember g controller meetups
             <p>Template is render in the scope of the controller</p>
             <p>Generate controller</p>
             <p>Add computed property "meetups" pointing to "model"</p>
+            <p>Add computed property "firstMeetup" pointing to "meetups.firstObject"</p>
           </aside>
         </section>
 
         <section>
           <h2>Models</h2>
+
           <p>Let's get some data into our app</p>
 
           <pre><code data-trim contenteditable>
@@ -337,8 +356,8 @@ $ ember g model meetup title:string createdAt:date updatedAt:date
           <h2>Serializing data</h2>
 
           <pre><code data-trim contenteditable>
-ember g adapter application
-ember g serializer application
+$ ember g adapter application
+$ ember g serializer application
           </code></pre>
 
           <aside class="notes">
@@ -357,9 +376,15 @@ ember g serializer application
 import DS from 'ember-data';
 
 export default DS.JSONAPIAdapter.extend({
+
   namespace: 'api'
+
 });
           </code></pre>
+
+          <aside class="notes">
+            <p>Change our namespace since our API is at /api</p>
+          </aside>
         </section>
 
         <section>
@@ -374,6 +399,7 @@ import DS from 'ember-data';
 var underscore = Ember.String.underscore;
 
 export default DS.JSONAPISerializer.extend({
+
   keyForAttribute: function(attr) {
     return underscore(attr);
   },
@@ -381,17 +407,20 @@ export default DS.JSONAPISerializer.extend({
   keyForRelationship: function(rawKey) {
     return underscore(rawKey);
   }
+
 });
           </code></pre>
         </section>
 
         <section>
           <h2>Proxying requests</h2>
-          <p>Start the server with the --proxy flag to have all requests proxy through to your dev server.</p>
+
+          <p>Start the server with the <code>--proxy</code> flag to have all requests proxy through to your dev server.</p>
 
           <pre><code data-trim contenteditable>
 $ ember server --proxy http://localhost:3000
           </code></pre>
+
           <p>OR in .ember-cli</p>
 
           <pre><code data-trim contenteditable>
@@ -405,7 +434,9 @@ $ ember server --proxy http://localhost:3000
 
         <section>
           <h2>Using Ember Data</h2>
+
           <p>Use the service on <code>this.store</code> to retreive data via promises.</p>
+
           <pre><code data-trim contenteditable>
 model() {
   return this.store.findAll('meetup');
@@ -420,7 +451,9 @@ model() {
 
         <section>
           <h2>Components</h2>
+
           <p>Reusable HTML controls</p>
+
           <pre><code data-trim contenteditable>
 $ ember g component meetup-item
           </code></pre>
@@ -434,17 +467,25 @@ $ ember g component meetup-item
 
         <section>
           <h2>Ember 2.something</h2>
-          <p>Route -> Model <span style="text-decoration: line-through;">-> Controller</span> -> Component -> Template</p>
-          <p><a href="https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md">https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md</a></p>
+
+          <p><img src="img/names-tee-2.png" alt="Names" height="340"></p>
+
+          <p><a target="_blank" href="https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md">https://github.com/ef4/rfcs/blob/routeable-components/active/0000-routeable-components.md</a></p>
+
+          <aside class="notes">
+            <p>In a later release of Ember controllers will be removed in favor of routable components</p>
+          </aside>
         </section>
 
         <section style="text-align: left;">
           <h2>Thanks, Ember.YVR!</h2>
-          <p>Reach out to <a href="http://twitter.com/typeoneerror">@typeoneerror</a> on Twitter with questions</p>
+
+          <p>Reach out to <a target="_blank" href="http://twitter.com/typeoneerror">@typeoneerror</a> on Twitter with questions</p>
+
+          <p>Source: <a href="https://github.com/emberyvr/intro-to-ember" target="_blank">https://github.com/emberyvr/intro-to-ember</a></p>
         </section>
 
       </div>
-
     </div>
 
     <script src="lib/js/head.min.js"></script>
