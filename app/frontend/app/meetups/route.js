@@ -10,7 +10,7 @@ export default Ember.Route.extend({
 
     saveMeetup(meetup) {
       meetup.save().then(() => {
-        console.info('saved!')
+        console.info('saved!');
       }, () => {
         console.error('failed to save!');
       });
