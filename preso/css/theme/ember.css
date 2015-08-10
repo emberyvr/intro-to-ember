@@ -1,8 +1,7 @@
 @import url(../../lib/font/source-sans-pro/source-sans-pro.css);
+
 /**
- * White theme for reveal.js. This is the opposite of the 'black' theme.
- *
- * Copyright (C) 2015 Hakim El Hattab, http://hakim.se
+ * Ember.js theme for reveal.js.
  */
 section.has-dark-background,
 section.has-dark-background h1,
