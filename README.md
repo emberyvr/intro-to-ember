@@ -12,6 +12,7 @@ Open _preso/index.html_ in your browser.
 
 ```
 cd app/backend
+gem install bundler
 bundle install
 rake db:create db:migrate db:seed
 rails server
